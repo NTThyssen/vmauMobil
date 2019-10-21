@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1A1E26"
+        tools:context=".FirstTimeActivity">
+
+    <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="239dp"
+            android:layout_height="182dp"
+            android:layout_marginTop="84dp"
+            android:background="#FF00FF"
+            android:backgroundTint="#00632525"
+            android:tint="#00F00303"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <Button
+            android:id="@+id/FirstTimeBtn"
+            style="@style/AppTheme.RoundedCornerMaterialButton"
+            android:layout_width="223dp"
+            android:layout_height="120dp"
+
+            android:layout_marginTop="172dp"
+            android:text="Begin Hering Test"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.542"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton"
+            app:layout_constraintVertical_bias="0.427" />
+
+
+
+</android.support.constraint.ConstraintLayout>
