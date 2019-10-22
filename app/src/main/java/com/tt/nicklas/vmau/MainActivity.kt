@@ -1,22 +1,13 @@
 package com.tt.nicklas.vmau
 
-import android.app.Activity
-import android.app.DownloadManager
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
-import android.content.Context
 import android.content.Intent
-import android.nfc.Tag
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.app.AppCompatDialogFragment
 import android.support.v4.app.Fragment
-import android.util.Log
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,17 +46,15 @@ class MainActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = 0
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
-        if (mBluetoothAdapter == null){
-            toast("Bluetooth not available on this device")
-        }
-        if(!mBluetoothAdapter!!.isEnabled){
-            val enableBTIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-            startActivityForResult(enableBTIntent, REQUEST_ENABLE_BLUETOOTH)
+
+        imgTop.setOnClickListener {
+            val intent = Intent(this, HearingActivity::class.java)
+            startActivity(intent)
         }
 
-
-        imgTopLeft.setOnClickListener { mBluetoothAdapter!!.enable() }
+        imgBot.setOnClickListener { val intent = Intent(this, HearingTestResult::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -75,21 +64,7 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-            if(requestCode == REQUEST_ENABLE_BLUETOOTH){
-                if(resultCode == Activity.RESULT_OK){
-                    if(mBluetoothAdapter!!.isEnabled){
-                        toast("bluetooth activated")
-                    }else{
-                        toast("bluetooth deativated")
-                    }
 
-                }
-            }else if(resultCode == Activity.RESULT_CANCELED){
-                toast("bluetooth was canceld")
-            }
-    }
 
 
 }
