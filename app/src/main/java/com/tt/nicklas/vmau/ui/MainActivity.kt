@@ -1,18 +1,17 @@
 package com.tt.nicklas.vmau.ui
 
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
+
 import android.content.Intent
-import android.databinding.DataBindingUtil.setContentView
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import com.tt.nicklas.vmau.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : android.support.v7.app.AppCompatActivity() {
+class MainActivity : androidx.appcompat.app.AppCompatActivity() {
 
-        private val mOnNavigationItemSelectedListener = android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
                 message.setText(R.string.title_home)

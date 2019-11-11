@@ -3,8 +3,8 @@ package com.tt.nicklas.vmau.ui
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.tt.nicklas.vmau.R
 import kotlinx.android.synthetic.main.activity_first_time.*
 

@@ -4,10 +4,12 @@ import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.tt.nicklas.vmau.R
 import com.tt.nicklas.vmau.view_model.HearingViewModel
 import kotlinx.android.synthetic.main.activity_hearing.*
@@ -52,21 +54,23 @@ class HearingActivity : AppCompatActivity() {
     }
     private fun pairedDevices(){
         mPairedDevice = mBluetoothAdapter!!.bondedDevices
-        val list : ArrayList<BluetoothDevice> = ArrayList()
+        val listName : ArrayList<String> = ArrayList()
+        val listAddress : ArrayList<BluetoothDevice> = ArrayList()
 
         if(!mPairedDevice.isEmpty()){
             for (d: BluetoothDevice in mPairedDevice){
-                list.add(d)
+                listName.add(d.name)
+                listAddress.add(d)
 
             }
         }else{
             toast("No paired device found")
         }
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listName)
         BTListView.adapter = adapter
         BTListView.onItemClickListener = AdapterView.OnItemClickListener{_, _ , i, _ ->
-            val device : BluetoothDevice = list[i]
+            val device : BluetoothDevice = listAddress[i]
             val address : String = device.address
 
             val intent = Intent(this, HearingTestActivty::class.java)

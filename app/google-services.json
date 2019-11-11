@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "20068110796",
+    "firebase_url": "https://vmau-14ad9.firebaseio.com",
+    "project_id": "vmau-14ad9",
+    "storage_bucket": "vmau-14ad9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20068110796:android:d79b546f6d031fe8ae4d69",
+        "android_client_info": {
+          "package_name": "com.tt.nicklas.vmau"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20068110796-5ka2e8c4i9lq0n78lebq65qpmbq3vk9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3LSTb5u9rBjBDop3nvb-eT-rWwgwGgFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20068110796-5ka2e8c4i9lq0n78lebq65qpmbq3vk9l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
