@@ -1,4 +1,4 @@
-package com.tt.nicklas.vmau
+package com.tt.nicklas.vmau.ui
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.tt.nicklas.vmau.R
 
 /**
  * A simple [Fragment] subclass.

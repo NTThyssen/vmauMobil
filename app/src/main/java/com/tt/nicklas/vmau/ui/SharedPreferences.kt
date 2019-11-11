@@ -1,4 +1,4 @@
-package com.tt.nicklas.vmau
+package com.tt.nicklas.vmau.ui
 
 import android.content.Context
 import android.content.SharedPreferences

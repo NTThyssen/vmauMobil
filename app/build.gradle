@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -20,7 +20,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
 }
+
 repositories {
     google()
 }
@@ -28,7 +34,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //noinspection GradleCompatible
+   // noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
@@ -37,10 +43,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.anko:anko-common:0.8.3"
-
+  //  implementation 'androidx.core:core-ktx:1.1.0'
+   // kapt "com.android.databinding:compiler:$kotlin_version"
+   // implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
+   // implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
+   // implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    //implementation 'androidx.fragment:fragment-ktx:1.1.0'
     //def nav_version = "2.1.0"
-    // implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    // implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    //implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    //implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 
 }

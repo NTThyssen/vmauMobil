@@ -1,4 +1,4 @@
-package com.tt.nicklas.vmau
+package com.tt.nicklas.vmau.ui
 
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
@@ -6,22 +6,28 @@ import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.tt.nicklas.vmau.R
+import com.tt.nicklas.vmau.view_model.HearingViewModel
 import kotlinx.android.synthetic.main.activity_hearing.*
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
+import java.nio.channels.InterruptedByTimeoutException
+import kotlin.concurrent.fixedRateTimer
 
 class HearingActivity : AppCompatActivity() {
     var mBluetoothAdapter: BluetoothAdapter? = null
+    lateinit var viewModel: HearingViewModel
     lateinit var mPairedDevice: Set<BluetoothDevice>
     companion object{
-        val adress = "Device address"
+        val EXTRA_ADDRESS = "Device address"
     }
     val REQUEST_ENABLE_BLUETOOTH = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hearing)
+
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
 
         if (mBluetoothAdapter == null) {
@@ -30,9 +36,8 @@ class HearingActivity : AppCompatActivity() {
         btState()
         PairButton.setOnClickListener {
         if(btState()) {
-                val intent = Intent(this, HearingTestActivty::class.java)
-                startActivity(intent)
-                finish()
+            pairedDevices()
+
         }else {
 
             val enableBTIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
@@ -40,6 +45,7 @@ class HearingActivity : AppCompatActivity() {
             mBluetoothAdapter!!.enable()
 
         }
+
 
         }
 
@@ -55,6 +61,17 @@ class HearingActivity : AppCompatActivity() {
             }
         }else{
             toast("No paired device found")
+        }
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
+        BTListView.adapter = adapter
+        BTListView.onItemClickListener = AdapterView.OnItemClickListener{_, _ , i, _ ->
+            val device : BluetoothDevice = list[i]
+            val address : String = device.address
+
+            val intent = Intent(this, HearingTestActivty::class.java)
+            intent.putExtra(EXTRA_ADDRESS, address)
+            startActivity(intent)
         }
     }
 

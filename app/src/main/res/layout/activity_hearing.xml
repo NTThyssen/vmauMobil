@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linearLayoutBT"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#1A1E26"
-        tools:context=".HearingActivity">
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/idCardView"
+        app:layout_constraintHorizontal_bias="0.5"
+        tools:context=".ui.HearingActivity">
 
-    <Button
-            android:id="@+id/PairButton"
-            style="@style/AppTheme.RoundedCornerMaterialButton"
-            android:layout_width="243dp"
-            android:layout_height="95dp"
-            android:layout_marginBottom="76dp"
-            android:text="Pair Device"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.v7.widget.CardView
             android:id="@+id/idCardView"
             android:layout_width="293dp"
             android:layout_height="141dp"
             android:layout_margin="20dp"
-            android:layout_marginBottom="220dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="222dp"
             app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/PairButton"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.618"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.19">
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.281">
 
         <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#4C7CD6">
+                android:background="#4C7CD6"
+                app:layout_constraintBottom_toTopOf="@+id/BTListView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent">
 
             <TextView
                     android:layout_width="161dp"
                     android:layout_height="84dp"
                     android:layout_marginEnd="124dp"
                     android:background="#4C7CD6"
-                    android:textSize="18dp"
-                    android:textColor="#FFFFFF"
                     android:text="You are about to begin a Hearing Test. Make sure to Pair your Device"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -63,4 +65,22 @@
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
-</android.support.constraint.ConstraintLayout>
+
+    <ListView
+            android:id="@+id/BTListView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/PairButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <Button
+            android:id="@+id/PairButton"
+            style="@style/AppTheme.RoundedCornerMaterialButton"
+            android:layout_width="243dp"
+            android:layout_height="95dp"
+            android:layout_marginBottom="108dp"
+            android:layout_marginTop="40dp"
+            android:text="Pair Device"/>
+
+</LinearLayout>

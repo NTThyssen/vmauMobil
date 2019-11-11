@@ -1,7 +1,8 @@
-package com.tt.nicklas.vmau
+package com.tt.nicklas.vmau.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.tt.nicklas.vmau.R
 import kotlinx.android.synthetic.main.activity_hearing_test_result.*
 import org.jetbrains.anko.toast
 

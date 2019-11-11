@@ -1,11 +1,11 @@
-package com.tt.nicklas.vmau
+package com.tt.nicklas.vmau.ui
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
+import com.tt.nicklas.vmau.R
 import kotlinx.android.synthetic.main.activity_first_time.*
 
 class FirstTimeActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class FirstTimeActivity : AppCompatActivity() {
         }
 
 
-        FirstTimeBtn.setOnClickListener {
+        FirstTimeButton.setOnClickListener {
             val intent = Intent(this, HearingActivity::class.java)
             startActivity(intent)
             finish()
@@ -36,7 +36,6 @@ class FirstTimeActivity : AppCompatActivity() {
             alert.setTitle("One time Dialog")
             alert.setMessage("Welcome to Audientes. \nFirst time using the app we will perform a hearing test.")
             alert.setPositiveButton("ok",{  dialogInterface: DialogInterface?, i: Int ->
-
             } )
         alert.show()
     }
