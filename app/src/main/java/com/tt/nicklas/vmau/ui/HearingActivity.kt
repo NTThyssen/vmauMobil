@@ -97,7 +97,7 @@ class HearingActivity : AppCompatActivity() {
         if (requestCode == REQUEST_ENABLE_BLUETOOTH) {
             if (resultCode == Activity.RESULT_OK) {
                 if (mBluetoothAdapter!!.isEnabled) {
-                    PairButton.text = "Pair Device"
+                    PairButton.text = "List Paired Devices"
                     toast("bluetooth activated")
                 } else {
                     toast("bluetooth deativated")

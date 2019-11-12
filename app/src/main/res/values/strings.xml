@@ -6,5 +6,7 @@
     <string name="welcome_text">Welcome to Audientes. "\n" First time using the app we will perform a hearing test.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_about_fragment">Hello blank about fragment</string>
+    <string name="hello_blank_dashboard_fragment">Hello blank dash fragment</string>
+    <string name="hello_blank_home_fragment">Hello blank fragment</string>
 </resources>

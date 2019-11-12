@@ -5,7 +5,7 @@
         android:id="@+id/linearLayoutBT"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1A1E26"
+        android:background="@drawable/grade"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
@@ -81,6 +81,6 @@
             android:layout_height="95dp"
             android:layout_marginBottom="108dp"
             android:layout_marginTop="40dp"
-            android:text="Pair Device"/>
+            android:text="List Paired Devices"/>
 
 </LinearLayout>

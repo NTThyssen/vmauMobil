@@ -8,43 +8,37 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import com.tt.nicklas.vmau.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : androidx.appcompat.app.AppCompatActivity() {
 
         private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                message.setText(R.string.title_home)
                 replaceFrag(HomeFragment())
+                navigation.onCheckIsTextEditor()
+                navigation.menu.findItem(R.id.navigation_home).isChecked = true
             }
             R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
                 replaceFrag(Dashboard_fragment())
-
+                navigation.menu.findItem(R.id.navigation_dashboard).isChecked = true
             }
             R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
                 replaceFrag(About_fragment())
+                navigation.menu.findItem(R.id.navigation_notifications).isChecked = true
             }
         }
+
         false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        replaceFrag(HomeFragment())
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        navigation.selectedItemId = 0
 
-        imgTop.setOnClickListener {
-            val intent = Intent(this, HearingActivity::class.java)
-            startActivity(intent)
-        }
 
-        imgBot.setOnClickListener { val intent = Intent(this, HearingTestResult::class.java)
-            startActivity(intent)
-        }
 
     }
 

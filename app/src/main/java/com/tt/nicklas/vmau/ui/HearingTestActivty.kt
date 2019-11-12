@@ -1,8 +1,5 @@
 package com.tt.nicklas.vmau.ui
-
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothSocket
+import android.bluetooth.*
 import android.content.AbstractThreadedSyncAdapter
 import android.content.Context
 import android.os.Bundle
@@ -22,7 +19,6 @@ class HearingTestActivty: AppCompatActivity() {
 
     companion object{
         var mUUID: UUID = UUID.fromString("00001108-0000-1000-8000-00805f9b34fb")
-
         var mBluetootSocket: BluetoothSocket? = null
         lateinit var mBlueToothAdapter: BluetoothAdapter
         var isConnected: Boolean = false
@@ -34,7 +30,6 @@ class HearingTestActivty: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hearing_test_activty)
         mAdress = intent.getStringExtra((HearingActivity.EXTRA_ADDRESS))
-
         ConnectToDevice(this).execute()
 
 
@@ -42,9 +37,25 @@ class HearingTestActivty: AppCompatActivity() {
         btnSoundHeard.setOnClickListener {
 
             //sendCmd(input = )
-            /*val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()*/
+            finish()
+        }
+    }
+
+    fun removeBond(device: BluetoothDevice) {
+        try {
+            device::class.java.getMethod("removeBond").invoke(device)
+        } catch (e: Exception) {
+            Log.e("remove", "Removing bond has been failed. ${e.message}")
+        }
+    }
+
+    fun pairbond(device: BluetoothDevice) {
+        try {
+            device::class.java.getMethod("createBond").invoke(device)
+        } catch (e: Exception) {
+            Log.e("remove", "Removing bond has been failed. ${e.message}")
         }
     }
 
@@ -68,23 +79,23 @@ class HearingTestActivty: AppCompatActivity() {
         }
 
         override fun doInBackground(vararg p0: Void?): String? {
-            Log.i("connection", "-------")
             try{
                 if(mBluetootSocket == null || !isConnected){
 
                     mBlueToothAdapter = BluetoothAdapter.getDefaultAdapter()
                     val device: BluetoothDevice = mBlueToothAdapter.getRemoteDevice(mAdress)
-
-                    Log.i("this shit uuid", device.getUuids()[0].toString())
                     mBluetootSocket = device.createInsecureRfcommSocketToServiceRecord(mUUID)
                     BluetoothAdapter.getDefaultAdapter().cancelDiscovery()
-
                     mBluetootSocket!!.connect()
-                    Log.i("connection",  "------")
+
+
+
+
+
                 }
             }catch (e: IOException){
                 connectSucces = false
-                Log.i("connection", "FAILED")
+                Log.i("!--------------------!", "FAILED")
                 e.printStackTrace()
             }
             return null
@@ -101,6 +112,9 @@ class HearingTestActivty: AppCompatActivity() {
                 Log.i("connection", "connection failed")
             }else{
                 isConnected = true
+                Log.i("connection", "IT WORKED")
+                mBluetootSocket!!.inputStream
+
             }
 
         }

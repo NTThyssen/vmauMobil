@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/homeFrag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/grade"
         tools:context=".ui.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+            android:id="@+id/homeLinear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-             />
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/messageFrag"
+                android:layout_width="225dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="20dp"
+                android:text="From Here You Can Perfrom Hearing Test And See Prior Test Results"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/imgTopFrag"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/imgTopFrag"
+                android:layout_width="205dp"
+                android:layout_height="153dp"
+                android:layout_marginTop="30dp"
+                android:clickable="true"
+                android:paddingTop="100dp"
+
+                app:layout_constraintBottom_toTopOf="@+id/imgBotFrag"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageFrag"
+                app:fabCustomSize="150dp"
+                app:maxImageSize="100dp"
+                app:srcCompat="@drawable/ic_ear" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/imgBotFrag"
+                android:layout_width="157dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="5dp"
+                android:clickable="true"
+                app:fabCustomSize="150dp"
+                app:maxImageSize="100dp"
+                app:srcCompat="@drawable/ic_equalizer"
+                app:useCompatPadding="false" />
+
+    </LinearLayout>
 
 </FrameLayout>

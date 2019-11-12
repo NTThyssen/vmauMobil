@@ -18,7 +18,7 @@ class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
         // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.tt.nicklas.vmau", appContext.packageName)
+        val appContext = InstrumentationRegistry.getInstrumentation()
+        assertEquals("com.tt.nicklas.vmau", appContext)
     }
 }
